@@ -1,24 +1,8 @@
-# README
+# self study
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+個人学習用のリポジトリです
 
-Things you may want to cover:
+### 目標
+体重等の身体データを記録しグラフ表示させる
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
