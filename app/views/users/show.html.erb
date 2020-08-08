@@ -1,1 +1,12 @@
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style=>"text-decoration: none;text-shadow: 2px 2px 2px rgba(20, 20, 20, 0.5);", class: "bottom" %>
+<div>
+	<%= @user.name %>
+	<%= @user.email %>
+</div>
+<div>
+	<%= link_to '投稿する', new_status_path(@status) %>
+</div>
+<div>
+	<% @statuses.each do |post| %>
+	    <% status.weight %>
+	<% end %>
+</div>
