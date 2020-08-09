@@ -6,7 +6,7 @@
 	<%= link_to '投稿する', new_status_path(@status) %>
 </div>
 <div>
-	<% @statuses.each do |post| %>
-	    <% status.weight %>
+	<% @statuses.each do |status| %>
+	    <%= status.weight %>
 	<% end %>
 </div>
