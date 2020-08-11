@@ -4,6 +4,12 @@ class StatusesController < ApplicationController
 		@status = Status.new
 	end
 
+	def index
+		@statuses = Status.all.order('created_at ASC')
+        @weights = @statuses.map(&:weight)
+        @dates = @statuses.map{|status| status.created_at.strftime('%Y/%m/%d') }
+	end
+
 	def show
 		
 	end
