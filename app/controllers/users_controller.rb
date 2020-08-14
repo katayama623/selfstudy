@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@statuses = @user.statuses.all
+		@statuses = @user.statuses
+		@status = Status.new
         @weights = @statuses.map(&:weight)
         @dates = @statuses.map{|status| status.created_at.strftime('%Y/%m/%d') }
 	end

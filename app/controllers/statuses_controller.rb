@@ -25,11 +25,14 @@ class StatusesController < ApplicationController
 	end
 
 	def edit
-		
+		@status = Status.find(params[:id])
 	end
 
 	def update
-		
+		@user = current_user
+		@status = Status.find(params[:id])
+		@status.update(status_params)
+		redirect_to user_path(@user)
 	end
 
 	def destroy

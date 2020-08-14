@@ -6,9 +6,27 @@
 	<%= link_to '投稿する', new_status_path(@status) %>
 </div>
 <div>
-	<% @statuses.each do |status| %>
-	    <%= status.weight %>
-	<% end %>
+	<table border="1">
+        <tr>
+        	<th>体重</th>
+        	<th>日時</th>
+        	<th></th>
+        </tr>
+        <% @statuses.each do |status| %>
+        <tr>
+            <td>
+	        <%= status.weight %>kg
+	        </td>
+	        <td>
+	        <%= status.created_at %>
+            </td>
+            <td>
+            <%= link_to("編集",edit_status_path(status.id)) %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+
 </div>
 
 <style>
