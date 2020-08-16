@@ -15,10 +15,11 @@ class StatusesController < ApplicationController
 	end
 
 	def create
+		@user = current_user
 		@status = Status.new(status_params)
 	    @status.user_id = current_user.id
 	    if @status.save
-	        redirect_to @status
+	        redirect_to user_path(@user)
 	    else
 			render 'new'
         end
@@ -36,7 +37,10 @@ class StatusesController < ApplicationController
 	end
 
 	def destroy
-		
+		@user = current_user
+		@status = Status.find(params[:id])
+		@status.destroy
+		redirect_to user_path(@user)
 	end
 
 	private
