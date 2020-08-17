@@ -3,33 +3,40 @@
 	<%= @user.email %>
 </div>
 <div>
-	<%= link_to '投稿する', new_status_path(@status) %>
+  <%= link_to 'プロフィール編集',edit_user_path(@user), :style=>"text-decoration: none;", class: "bottom edit_user_#{@user.id} " %>
+</div>
+<div>
+  <% if @user.statuses.exists?(:created_at => Date.today) %>
+	  今日は投稿しました
+  <% else %>
+    <%= link_to '投稿する', new_status_path(@status) %>
+  <% end %>
 </div>
 <div>
 	<table border="1">
-        <tr>
-        	<th>体重</th>
-        	<th>日時</th>
-        	<th></th>
-          <th></th>
-        </tr>
-        <% @statuses.each do |status| %>
-        <tr>
-            <td>
-	        <%= status.weight %>kg
-	        </td>
-	        <td>
-	        <%= status.created_at %>
-          </td>
-          <td>
-          <%= link_to("編集",edit_status_path(status.id)) %>
-          </td>
-          <td>
-          <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
-          </td>
-        </tr>
-        <% end %>
-    </table>
+    <tr>
+    	<th>体重</th>
+    	<th>日時</th>
+    	<th></th>
+      <th></th>
+    </tr>
+    <% @statuses.each do |status| %>
+    <tr>
+        <td>
+      <%= status.weight %>kg
+      </td>
+      <td>
+      <%= status.created_at %>
+      </td>
+      <td>
+      <%= link_to("編集",edit_status_path(status.id)) %>
+      </td>
+      <td>
+      <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 
 </div>
 

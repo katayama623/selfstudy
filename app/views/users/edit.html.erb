@@ -1,0 +1,10 @@
+<%= form_for(@user) do |f| %>
+    <div class="form_group">
+        <br>
+        <h4>
+            <strong>ユーザー名</strong>
+        </h4>
+        <%= f.text_field :name, placeholder: "ユーザー名を入力してください", class: "form-control" %>
+    </div><br>
+<%= f.submit "更新する" %>
+<% end %>
