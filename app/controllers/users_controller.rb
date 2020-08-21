@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 		@statuses = @user.statuses
 		@status = Status.new
         @weights = @statuses.map(&:weight)
+        @oneday = @user.statuses.where(created_at: Time.zone.now.all_day)
         @dates = @statuses.map{|status| status.created_at.strftime('%Y/%m/%d') }
 	end
 
