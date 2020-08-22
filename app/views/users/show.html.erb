@@ -5,15 +5,9 @@
 <div>
   <%= link_to 'プロフィール編集',edit_user_path(@user), :style=>"text-decoration: none;", class: "bottom edit_user_#{@user.id} " %>
 </div>
-<div>
-  <% if @user.statuses.exists?(:created_at => Date.today) %>
-	  今日は投稿しました
-  <% else %>
-    <%= link_to '投稿する', new_status_path(@status) %>
-  <% end %>
-</div>
 
-<h4>今日の体</h4>
+
+<% unless @oneday.empty? %>
 <div>
   <table border="1">
     <tr>
@@ -40,6 +34,9 @@
     <% end %>
   </table>
 </div>
+<% else %>
+<%= link_to '投稿する', new_status_path(@status) %>
+<% end %>
 <div>
 	<table border="1">
     <tr>
