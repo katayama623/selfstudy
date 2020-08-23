@@ -8,6 +8,7 @@
 
 
 <% unless @oneday.empty? %>
+<h2>今日の記録</h2>
 <div>
   <table border="1">
     <tr>
@@ -35,8 +36,9 @@
   </table>
 </div>
 <% else %>
-<%= link_to '投稿する', new_status_path(@status) %>
+<h3><%= link_to '今日の体重を記録する', new_status_path(@status) %></h3>
 <% end %>
+<h2>過去の記録</h2>
 <div>
 	<table border="1">
     <tr>

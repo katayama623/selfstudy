@@ -10,18 +10,37 @@
     </head>
 
     <body>
-        <div>
-            <% if user_signed_in? %>
-                <%= link_to ' マイページ',user_path(current_user) %>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <% else %>
-                <%= link_to "新規登録", new_user_registration_path %>
-                <%= link_to "ログイン", new_user_session_path %>
-            <% end %>
+
+        <div class="header">
+
+            <div class="el_humburger">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+
+            <div id="uq_spNavi" class="uq_spNavi">
+                <div class="uq_spNavi_screen">
+                    <nav class="navigation">
+                        <div class="navigation_item"><%= link_to 'TOP',root_path %></div>
+                    <% if user_signed_in? %>
+                        <div class="navigation_item"><%= link_to 'マイページ',user_path(current_user) %></div>
+                        <div class="navigation_item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+                    <% else %>
+                        <div class="navigation_item"><%= link_to "新規登録", new_user_registration_path %></div>
+                        <div class="navigation_item"><%= link_to "ログイン", new_user_session_path %></div>
+                    <% end %>
+                    </nav>
+                </div>
+            </div>
         </div>
 
-        
+        <div class="wrap">
 
-        <%= yield %>
+    <%= yield %>
+
+        </div>
+
+
     </body>
 </html>
