@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
+	before_action :screen_user, only: [:show, :edit, :update]
 
 	def show
 		@user = User.find(params[:id])
@@ -27,5 +28,11 @@ class UsersController < ApplicationController
 	def user_params
 	    params.require(:user).permit(:name)
 	end
+
+	def screen_user
+        unless params[:id].to_i == current_user.id
+            redirect_to user_path(current_user)
+        end
+    end
 
 end

@@ -11,7 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
+//= require jquery
+//= require bootstrap-sprockets
+//= require jquery_ujs
 //= require_tree .
 
   // スクロール可能な要素を判別する関数

@@ -49,4 +49,10 @@ class StatusesController < ApplicationController
 	    params.require(:status).permit(:weight)
 	end
 
+	def screen_user(status)
+        if status.user.id != current_user.id
+            redirect_to root_path
+        end
+    end
+
 end
