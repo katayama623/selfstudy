@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_123541) do
+ActiveRecord::Schema.define(version: 2020_08_25_111211) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_123541) do
   end
 
   create_table "statuses", force: :cascade do |t|
-    t.integer "weight"
+    t.float "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

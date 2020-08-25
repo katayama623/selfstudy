@@ -5,10 +5,11 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@statuses = @user.statuses
-		@status = Status.new
+		@status = Status.find(params[:id])
         @weights = @statuses.map(&:weight)
-        @oneday = @user.statuses.where(created_at: Time.zone.now.all_day)
+        @onedays = @user.statuses.where(created_at: Time.zone.now.all_day)
         @dates = @statuses.map{|status| status.created_at.strftime('%Y/%m/%d') }
+        @variation = Status.where("id < ?")
 	end
 
 	def edit

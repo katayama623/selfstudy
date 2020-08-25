@@ -6,9 +6,10 @@
 <div>
   <%= link_to 'プロフィール編集',edit_user_path(@user), :style=>"text-decoration: none;", class: "bottom edit_user_#{@user.id} " %>
 </div>
+<div>現在の体重<%= @oneday %>
 
 
-<% unless @oneday.empty? %>
+<% unless @onedays.empty? %>
 <h2>今日の記録</h2>
 <div>
   <table border="1">
@@ -18,13 +19,13 @@
       <th></th>
       <th></th>
     </tr>
-    <% @oneday.each do |status| %>
+    <% @onedays.each do |status| %>
     <tr>
       <td>
       <%= status.weight %>kg
       </td>
       <td>
-      <%= status.created_at %>
+      <%= status.created_at.to_s(:datetime_jp) %>
       </td>
       <td>
       <%= link_to("編集",edit_status_path(status.id)) %>
@@ -47,6 +48,7 @@
     	<th>日時</th>
     	<th></th>
       <th></th>
+      <th></th>
     </tr>
     <% @statuses.each do |status| %>
     <tr>
@@ -54,13 +56,15 @@
       <%= status.weight %>kg
       </td>
       <td>
-      <%= status.created_at %>
+      <%= status.created_at.to_s(:datetime_jp) %>
       </td>
       <td>
       <%= link_to("編集",edit_status_path(status.id)) %>
       </td>
       <td>
       <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
+      </td>
+      <td>
       </td>
     </tr>
     <% end %>
