@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col-md-3">
     <div>
-    	<%= @user.name %>
-    	<%= @user.email %>
+    	<div><%= @user.name %></div>
+    	<div><%= @user.email %></div>
+      <div>性別<%= @user.sex %></div>
+      <div>身長<%= @user.height %></div>
+      <div>メモ<%= @user.message %></div>
     </div>
     <div>
       <%= link_to 'プロフィール編集',edit_user_path(@user), :style=>"text-decoration: none;", class: "bottom edit_user_#{@user.id} " %>

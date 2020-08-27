@@ -73,3 +73,5 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 
 gem 'kaminari'
+
+gem 'enum_help'
