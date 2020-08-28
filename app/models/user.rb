@@ -7,4 +7,8 @@ class User < ApplicationRecord
 	has_many :statuses, dependent: :destroy
 
 	enum sex: [:man, :woman]
+
+	validates :name, presence: true
+	validates :email, presence: true
+	validates :message, length: {maximum: 300}
 end
