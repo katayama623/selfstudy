@@ -1,5 +1,4 @@
-<div class="row">
-  <div class="col-lg-3">
+
     <div>
     	<div><%= @user.name %></div>
     	<div><%= @user.email %></div>
@@ -10,9 +9,7 @@
     <div>
       <%= link_to 'プロフィール編集',edit_user_path(@user), :style=>"text-decoration: none;", class: "bottom edit_user_#{@user.id} " %>
     </div>
-  </div>
-
-  <div class="col-lg-9">
+  
 
 
   <% unless @onedays.empty? %>
@@ -163,6 +160,5 @@
   <div id="chartdiv"></div>
   </div>
 
-  </div>
-</div>
+  
 
