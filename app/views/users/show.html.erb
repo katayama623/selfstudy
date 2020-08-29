@@ -14,7 +14,69 @@
 
   <div class="col-lg-9">
 
-  <style>
+
+  <% unless @onedays.empty? %>
+  <h2>今日の記録</h2>
+  <div>
+    <table border="1">
+      <tr>
+        <th>体重</th>
+        <th>日時</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @onedays.each do |status| %>
+      <tr>
+        <td>
+        <%= status.weight %>kg
+        </td>
+        <td>
+        <%= status.created_at.to_s(:datetime_jp) %>
+        </td>
+        <td>
+        <%= link_to("編集",edit_status_path(status.id)) %>
+        </td>
+        <td>
+        <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <% else %>
+  <h3><%= link_to '今日の体重を記録する', new_status_path(@status) %></h3>
+  <% end %>
+  <h2>過去の記録</h2>
+  <div>
+    <table border="1">
+      <tr>
+        <th>体重</th>
+        <th>日時</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @statuses.each do |status| %>
+      <tr>
+        <td>
+        <%= status.weight %>kg
+        </td>
+        <td>
+        <%= status.created_at.to_s(:datetime_jp) %>
+        </td>
+        <td>
+        <%= link_to("編集",edit_status_path(status.id)) %>
+        </td>
+        <td>
+        <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+
+    <style>
   #chartdiv {
     width: 100%;
     height: 500px;
@@ -100,67 +162,6 @@
   </script>
   <div id="chartdiv"></div>
   </div>
-
-  <% unless @onedays.empty? %>
-  <h2>今日の記録</h2>
-  <div>
-    <table border="1">
-      <tr>
-        <th>体重</th>
-        <th>日時</th>
-        <th></th>
-        <th></th>
-      </tr>
-      <% @onedays.each do |status| %>
-      <tr>
-        <td>
-        <%= status.weight %>kg
-        </td>
-        <td>
-        <%= status.created_at.to_s(:datetime_jp) %>
-        </td>
-        <td>
-        <%= link_to("編集",edit_status_path(status.id)) %>
-        </td>
-        <td>
-        <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-  <% else %>
-  <h3><%= link_to '今日の体重を記録する', new_status_path(@status) %></h3>
-  <% end %>
-  <h2>過去の記録</h2>
-  <div>
-    <table border="1">
-      <tr>
-        <th>体重</th>
-        <th>日時</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      <% @statuses.each do |status| %>
-      <tr>
-        <td>
-        <%= status.weight %>kg
-        </td>
-        <td>
-        <%= status.created_at.to_s(:datetime_jp) %>
-        </td>
-        <td>
-        <%= link_to("編集",edit_status_path(status.id)) %>
-        </td>
-        <td>
-        <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <% end %>
-    </table>
 
   </div>
 </div>

@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require_tree .
+//= require turbolinks
 
   // スクロール可能な要素を判別する関数
 function getFirstScrollable(selector){
