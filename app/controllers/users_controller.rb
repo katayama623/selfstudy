@@ -9,7 +9,8 @@ class UsersController < ApplicationController
         @weights = @statuses.map(&:weight)
         @onedays = @user.statuses.where(created_at: Time.zone.now.all_day)
         @dates = @statuses.map{|status| status.created_at.strftime('%Y/%m/%d') }
-        @variation = Status.where("id < ?")
+        @newday = @statuses.last
+        @lowday = @statuses.order("created_at DESC").offset(1).first
 	end
 
 	def edit
