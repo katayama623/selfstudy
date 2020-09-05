@@ -12,7 +12,9 @@
 
   <%= @newday.weight %>
   <%= @lowday.weight %>
-  
+  <br>
+  <% x = 0 %>
+  <%= x = (@newday.weight - @lowday.weight).ceil(2) %>
 
 
   <% unless @onedays.empty? %>
@@ -22,6 +24,7 @@
       <tr>
         <th>体重</th>
         <th>日時</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -39,6 +42,7 @@
         <td>
         <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
         </td>
+        <td><%= x.ceil(1) %></td>
       </tr>
       <% end %>
     </table>
