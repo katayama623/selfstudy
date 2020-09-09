@@ -42,7 +42,17 @@
         <td>
         <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
         </td>
-        <td><%= x.ceil(1) %></td>
+        <td>
+          <% if x > 0 %>
+            <%= x.ceil(1) %>
+          <% else %>
+            <% if x < 0 %>
+              <%= x.ceil(1) %>
+            <% else %>
+              <%= x.ceil(1) %>
+            <% end %>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </table>
