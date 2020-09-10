@@ -24,9 +24,8 @@
       <tr>
         <th>体重</th>
         <th>日時</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Action</th>
+        <th>前回比</th>
       </tr>
       <% @onedays.each do |status| %>
       <tr>
@@ -37,17 +36,14 @@
         <%= status.created_at.to_s(:datetime_jp) %>
         </td>
         <td>
-        <%= link_to("編集",edit_status_path(status.id)) %>
-        </td>
-        <td>
-        <%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
+        <%= link_to("編集",edit_status_path(status.id)) %>/<%= link_to("削除", status_path(status.id), method: :delete, data: { confirm: "削除してよろしいですか？" }) %>
         </td>
         <td>
           <% if x > 0 %>
-            <%= x.ceil(1) %>
+            <div style="color: red;"><%= x.ceil(1) %></div>
           <% else %>
             <% if x < 0 %>
-              <%= x.ceil(1) %>
+              <div style="color: blue;"><%= x.ceil(1) %></div>
             <% else %>
               <%= x.ceil(1) %>
             <% end %>
